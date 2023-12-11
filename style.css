@@ -21,6 +21,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around; 
 }
 
 a:hover {
@@ -251,13 +252,13 @@ button:hover{
 .first-section > .image-container {
   position: relative;
   width: 85%;
-  height: 90vh;
+  aspect-ratio: 2/1;
 }
 
 
 .first-section > .image-container > img {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 16/9;
 }
 
 .first-section > .image-container > h1 {
@@ -291,8 +292,8 @@ button:hover{
 }
 
 .second-section > .image-container {
-  height: 100vh;
   width: 100vw;
+  aspect-ratio: 16/9;
   display: grid;
   grid-template-columns: 40% 60%;
 }
@@ -310,21 +311,18 @@ button:hover{
 
 .chair {
   width: 60%;
-  height: 40%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
 }
 
 .building {
   position: absolute;
   left: -50%;
   width: 60%;
-  height: 70%;
+  aspect-ratio: 9  / 10;
+  object-fit: cover;
 }
 
-@media (max-width: 600px) {
-  .second-section > .image-container {
-    height: 50vh;
-  }
-}
 
 /* ==========================================  Third Section  =============================================*/
 .third-section {
@@ -345,7 +343,8 @@ button:hover{
 
 .third-section > .image-container > iframe{
   height: 90%;
-  width: 100%;
+  aspect-ratio: 16  / 9;
+  object-fit: cover;
 }
 
 .third-section > .image-container > h6{
@@ -373,8 +372,8 @@ button:hover{
 
 .fourth-section > .image-container {
   position: relative;
-  height: 130vh;
   width: 100vw;
+  aspect-ratio: 16/9;
   display: grid;
   grid-template-columns: 60% 40%;
 }
@@ -393,28 +392,25 @@ button:hover{
 
 .coop {
   width: 70%;
-  height: 35%;
+  aspect-ratio: 16  / 9;
+  object-fit: cover;
 }
 
 .table {
   width: 70%;
-  height: 35%;
+  aspect-ratio: 16  / 9;
+  object-fit: cover;
 }
 
 .book {
   position: absolute;
   grid-column: 2;
-  height: 50%;
-  width: 110%;
+  width: 100%;
+  aspect-ratio: 16  / 9;
+  object-fit: cover;
   top: 50%;
   right: 10%;
   transform: translateY(-50%);
-}
-
-@media (max-width: 600px) {
-  .fourth-section > .image-container {
-    height: 60vh;
-  }
 }
 
 /* ==========================================  Fifth Section  =============================================*/
@@ -435,14 +431,10 @@ button:hover{
 
 .meetingroom {
   width: 80%;
-  height: 90vh;
+  aspect-ratio: 16  / 9;
+  object-fit: cover;
 }
 
-@media (max-width: 600px){
-  .meetingroom {
-    height: 40vh;
-  }
-}
 /* ==========================================  Sixth Section  =============================================*/
 
 .sixth-section {
@@ -455,8 +447,8 @@ button:hover{
 
 .sixth-section > .image-container {
   position: relative;
-  height: 100vh;
   width: 70vw;
+  aspect-ratio: 16/9;
   background-color: var(--purple);
 }
 
@@ -473,23 +465,17 @@ button:hover{
 
 .phone {
   width: 35%;
-  height: 40%;
+  aspect-ratio: 16  / 9;
+  object-fit: cover;
 }
 
 .books {
   width: 40%;
-  height: 70%;
+  aspect-ratio: 16  / 9;
+  object-fit: cover;
 }
 
-@media (max-width: 600px){
-  .sixth-section > .image-container {
-    height: 40vh;
-    width: 60vw;
-  }
-  .sixth-section  > .image-container > .secondary-image-container {
-    left: -20vw;
-  }
-}
+
 /* ==========================================  Last Section  =============================================*/
 .last-section {
   display: flex;
