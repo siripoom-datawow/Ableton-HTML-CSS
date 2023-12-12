@@ -11,19 +11,25 @@ class BookShop {
 
   priceSummation (data) {
     let result = []
+    const bookPrice = 80
     let transaction = {...data}
 
     while (Object.keys(transaction).length !== 0 ) {
       let sum = []
-      for (let key in transaction){
-        if (transaction[key] == 0){
-          delete transaction[key]
-        } else {
-          sum.push(transaction[key])
-          transaction[key] -= 1
-        }
-      }
-      sum.length > 1 ? result.push(sum.length*80*this.discountRateByBookNumber[sum.length]) : result.push(sum.length*80)
+
+      Object.keys(transaction).map(key => {
+          if (transaction[key] == 0){
+            delete transaction[key]
+          } else {
+            sum.push(transaction[key])
+            transaction[key] -= 1
+          }
+        })
+        const basePrice = sum.length*bookPrice
+        const newResult = sum.length > 1
+            ? basePrice*this.discountRateByBookNumber[sum.length]
+            : basePrice
+        result.push(newResult)
     }
     return result.reduce((prev,curr)=>prev+curr,0)
   }
@@ -94,14 +100,16 @@ const thanks = document.querySelector('.thanks')
 submitBtn.addEventListener('click', ()=>{
   const transactionData = {}
   let sumBook = 0
+  const bookPrice = 80
+
   BookShopA.topRatedBooks.forEach( book=> {
     let numBook = document.querySelector(`.sum-${book}`)
     transactionData[book] = Number(numBook.value)
     sumBook += Number(numBook.value)
     numBook.value = 0
   });
-  total.innerHTML = `Total prices: ${80*sumBook} $`
+  total.innerHTML = `Total prices: ${bookPrice*sumBook} $`
   summation.innerHTML = `Summation: ${BookShopA.priceSummation(transactionData)} $`
-  discount.innerHTML = `Discount: ${80*sumBook - BookShopA.priceSummation(transactionData)} $`
+  discount.innerHTML = `Discount: ${bookPrice*sumBook - BookShopA.priceSummation(transactionData)} $`
   thanks.innerHTML = 'Thanks you ❤️️'
 })
